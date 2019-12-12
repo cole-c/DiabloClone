@@ -9,39 +9,41 @@ namespace RPG.Control
     {
         void Update()
         {
-            InteractWithCombat();
+            if (InteractWithCombat()) return;
             InteractWithMovement();
         }
 
-        private void InteractWithMovement()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                MoveToCursor();
-            }
-        }
-
-        private void InteractWithCombat()
-        {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-            foreach(RaycastHit hit in hits)
-            {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target != null)
-                {
-                    GetComponent<Fighter>().Attack(target);
-                }
-            }
-        }
-
-        private void MoveToCursor()
+        private bool InteractWithMovement()
         {
             RaycastHit hit;
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit)
             {
-                GetComponent<Mover>().MoveTo(hit.point);
+                if (Input.GetMouseButton(0))
+                {
+                    GetComponent<Mover>().MoveTo(hit.point);
+                    GetComponent<Fighter>().Cancel(); //Run away from combat
+                }
+                return true;
             }
+            return false;
+        }
+
+        private bool InteractWithCombat()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            foreach(RaycastHit hit in hits)
+            {
+                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+                if (target == null) continue;
+                
+                if(Input.GetMouseButton(0))
+                {
+                    GetComponent<Fighter>().Attack(target);    
+                }
+                return true;
+            }
+            return false;
         }
 
         private static Ray GetMouseRay()
