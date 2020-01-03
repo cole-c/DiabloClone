@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +22,7 @@ namespace RPG.Movement
 
         public void MoveTo(Vector3 destination)
         {
+            GetComponent<ActionScheduler>().StartAction(this);
             GetComponent<NavMeshAgent>().destination = destination;
             navMeshAgent.isStopped = false;
         }

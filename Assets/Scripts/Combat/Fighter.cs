@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
 
@@ -29,14 +30,12 @@ namespace RPG.Combat
 
         public void Attack(CombatTarget target)
         {
+            GetComponent<ActionScheduler>().StartAction(this);
             this.target = target.transform;
-            Debug.Log("Combat Initiated!");
         }
 
         public void Cancel()
         {
-            if (target != null)
-                Debug.Log("Bravely Ran Away!");
             target = null;
         }
     }
