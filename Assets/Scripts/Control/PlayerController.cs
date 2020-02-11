@@ -36,10 +36,16 @@ namespace RPG.Control
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
+
+                GameObject targetObject = target.gameObject;
+                if(!GetComponent<Fighter>().CanAttack(targetObject))
+                {
+                    continue;
+                }
                 
                 if(Input.GetMouseButton(0))
                 {
-                    GetComponent<Fighter>().Attack(target);    
+                    GetComponent<Fighter>().Attack(targetObject);    
                 }
                 return true;
             }
