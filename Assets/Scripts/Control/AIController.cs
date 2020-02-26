@@ -10,6 +10,7 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
+        [SerializeField] float suspicionTime = 3f;
 
         Fighter fighter;
         Health health;
@@ -17,13 +18,14 @@ namespace RPG.Control
         Mover mover;
 
         Vector3 guardPosition;
+        float timeSinceLastSawPlayer = Mathf.Infinity;
 
         private void Start()
         {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             player = GameObject.FindWithTag("Player");
-            Mover = GetComponent<Mover>();
+            mover = GetComponent<Mover>();
             guardPosition = transform.position;
         }
 
@@ -33,13 +35,36 @@ namespace RPG.Control
 
             if(InAttackRange() && fighter.CanAttack(player))
             {
-                fighter.Attack(player);
+                //Aggro state
+                timeSinceLastSawPlayer = 0;
+                AttackBehaviour();
             } 
+            else if(timeSinceLastSawPlayer < suspicionTime)
+            {
+                //Suspicion state
+                SuspicionBehavior();
+            }
             else
             {
-                fighter.Cancel();
-                mover.StartMoveAction(guardPosition);
+                GuardBehavior();
             }
+
+            timeSinceLastSawPlayer += Time.deltaTime;
+        }
+
+        private void AttackBehaviour()
+        {
+            fighter.Attack(player);
+        }
+
+        private void SuspicionBehavior()
+        {
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        private void GuardBehavior()
+        {
+            mover.StartMoveAction(guardPosition);
         }
 
         private bool InAttackRange()
