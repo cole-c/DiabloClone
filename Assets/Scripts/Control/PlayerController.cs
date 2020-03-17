@@ -31,7 +31,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().MoveTo(hit.point);
+                    GetComponent<Mover>().MoveTo(hit.point, 1f);
                     GetComponent<Fighter>().Cancel(); //Run away from combat
                 }
                 return true;
