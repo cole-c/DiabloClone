@@ -83,6 +83,7 @@ namespace RPG.Combat
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
             target = null;
+            GetComponent<Mover>().Cancel(); //Moving is a part of fighting if we are out of range
         }
     }
 
