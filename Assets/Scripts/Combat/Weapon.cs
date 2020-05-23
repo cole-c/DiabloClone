@@ -20,10 +20,11 @@ namespace RPG.Combat
         {
             DestroyOldWeapon(rightHand, leftHand);
 
-            if(equippedPrefab != null)
+            handTransform = rightHand;
+            if (!isRightHanded) handTransform = leftHand;
+
+            if (equippedPrefab != null)
             {
-                handTransform = rightHand;
-                if (!isRightHanded) handTransform = leftHand;
                 GameObject weapon = Instantiate(equippedPrefab, handTransform);
                 weapon.name = weaponName;
             }

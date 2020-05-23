@@ -151,15 +151,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6267521206836744761, guid: c520e649f8257453195a47a7d587eb56,
-        type: 3}
-      propertyPath: m_Name
-      value: ArrowAllyTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 4329532937409833598, guid: c520e649f8257453195a47a7d587eb56,
         type: 3}
       propertyPath: speed
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329532937409833598, guid: c520e649f8257453195a47a7d587eb56,
+        type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 5435712097626003287, guid: 991766ba3c2b35545ac3e5865b29466d,
+        type: 3}
+    - target: {fileID: 6267521206836744761, guid: c520e649f8257453195a47a7d587eb56,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowAllyTrail
       objectReference: {fileID: 0}
     - target: {fileID: 5810957316791302473, guid: c520e649f8257453195a47a7d587eb56,
         type: 3}

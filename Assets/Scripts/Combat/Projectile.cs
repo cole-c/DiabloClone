@@ -1,20 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using RPG.Core;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 1;
+    [SerializeField] bool homing = false;
+    [SerializeField] GameObject hitEffect = null;
+
     Health target = null;
     float damage = 0;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        transform.LookAt(GetAimLocation());
+    }
+
     private void Update()
     {
-        if (target == null) return;
+        if (target is null) return;
 
-        transform.LookAt(GetAimLocation());
+        if (homing && !target.IsDead())
+        {
+            transform.LookAt(GetAimLocation());
+        }
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -36,8 +47,14 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Health>() != target) return;
+        if (other.GetComponent<Health>() != target || target.IsDead()) return;
         target.TakeDamage(damage);
+
+        if(hitEffect != null)
+        {
+            Instantiate(hitEffect, transform.position, transform.rotation);
+        }
+
         Destroy(gameObject);
     }
 }
