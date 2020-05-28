@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Core;
 using RPG.Movement;
+using RPG.Saving;
 using UnityEngine;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -20,7 +21,10 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeapon);
+            if(currentWeapon == null)//race condition with save system
+            {
+                EquipWeapon(defaultWeapon);
+            }
         }
 
         private void Update()
@@ -72,7 +76,6 @@ namespace RPG.Combat
             }
         }
 
-
         //Animation Event
         void Shoot()
         {
@@ -114,6 +117,18 @@ namespace RPG.Combat
             currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            String weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 

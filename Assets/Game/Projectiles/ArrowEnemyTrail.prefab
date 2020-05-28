@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8145865301163342220, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowEnemyTrail
+      objectReference: {fileID: 0}
     - target: {fileID: 2009959229142893003, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
         type: 3}
       propertyPath: speed
@@ -18,10 +23,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5435712097626003287, guid: 991766ba3c2b35545ac3e5865b29466d,
         type: 3}
-    - target: {fileID: 8145865301163342220, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+    - target: {fileID: 2009959229142893003, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
         type: 3}
-      propertyPath: m_Name
-      value: ArrowEnemyTrail
+      propertyPath: lifeAfterImpact
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
         type: 3}
