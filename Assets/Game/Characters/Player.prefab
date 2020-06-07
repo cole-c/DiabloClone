@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 100
---- !u!114 &1059828711342671179
+--- !u!114 &8770835999528535477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,11 +77,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5031224138415175721}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e12118962a789458228d03b4408f2f, type: 3}
+  m_Script: {fileID: 11500000, guid: b18641f999a7d7a4b85403c77ff9cba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  characterClass: 0
+  experiencePoints: 0
 --- !u!1001 &5332212078391161381
 PrefabInstance:
   m_ObjectHideFlags: 0

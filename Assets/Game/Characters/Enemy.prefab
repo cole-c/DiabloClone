@@ -73,19 +73,6 @@ MonoBehaviour:
   waypointTolerance: 1
   waypointDwellTime: 3
   patrolSpeedFraction: 0.2
---- !u!114 &5265845816154061505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6489039268642917259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueIdentifier: 
 --- !u!114 &584836526872775346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +87,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   characterClass: 1
+  progression: {fileID: 11400000, guid: 0624cc36daa7ee745afef035e1e97bae, type: 2}
+--- !u!114 &5265845816154061505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489039268642917259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 
 --- !u!1001 &6205995218845794695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,7 +195,8 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 3.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2690995436221021553, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
 --- !u!1 &6489039268642917259 stripped
 GameObject:

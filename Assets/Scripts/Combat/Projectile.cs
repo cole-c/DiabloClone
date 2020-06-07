@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using RPG.Core;
+﻿using RPG.Resources;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -16,6 +13,7 @@ namespace RPG.Combat
         [SerializeField] float lifeAfterImpact = 0.2f;
 
         Health target = null;
+        GameObject instigator = null;
         float damage = 0;
 
         private void Start()
@@ -36,10 +34,11 @@ namespace RPG.Combat
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, float damage, GameObject instigator)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
         }
 
         private Vector3 GetAimLocation()
@@ -55,7 +54,7 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<Health>() != target || target.IsDead()) return;
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
 
             speed = 0;
 
