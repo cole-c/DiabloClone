@@ -15,7 +15,7 @@ namespace RPG.Stats
 
         private void Update()
         {
-            GetComponent<Text>().text = String.Format("{000:##}", exp.GetExperience());
+            GetComponent<Text>().text = String.Format("{0:##0}", exp.GetExperience());
         }
     }
 }

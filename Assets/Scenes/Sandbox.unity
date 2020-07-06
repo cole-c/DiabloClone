@@ -685,7 +685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.399994, y: -60.5}
+  m_AnchoredPosition: {x: 59.5, y: -60.5}
   m_SizeDelta: {x: 46.36, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462358038
@@ -2430,7 +2430,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &1419542265
 BoxCollider:
@@ -2440,7 +2440,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419542260}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 1}
@@ -2590,7 +2590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 63.3, y: -41.3}
+  m_AnchoredPosition: {x: 67.6, y: -41.30005}
   m_SizeDelta: {x: 46.36, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1536409621
@@ -2710,7 +2710,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540421479}
-  m_LocalRotation: {x: 0.19450678, y: -0.18532854, z: 0.037451867, w: 0.96250606}
+  m_LocalRotation: {x: 0.19450681, y: -0.18532857, z: 0.03745188, w: 0.96250606}
   m_LocalPosition: {x: -6.645071, y: -9.172131, z: -17.011723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2894,16 +2894,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5332212078235757903, guid: 865261e6b8f32294d8e37c748924af9f,
-        type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
-        type: 2}
-    - target: {fileID: 2080910917, guid: 865261e6b8f32294d8e37c748924af9f, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 865261e6b8f32294d8e37c748924af9f, type: 3}
@@ -3869,7 +3859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -750.3, y: -26.3}
+  m_AnchoredPosition: {x: -750.30005, y: -26.300049}
   m_SizeDelta: {x: 189.3, y: 30}
   m_Pivot: {x: -4, y: 1}
 --- !u!114 &2119176370
@@ -4006,6 +3996,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 5033267554572535475, guid: 14e71bcb917410d4b8cffe895b263c80,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4896419761276966320, guid: 14e71bcb917410d4b8cffe895b263c80,
         type: 3}
       propertyPath: m_Follow
@@ -4101,10 +4096,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -32.983444
       objectReference: {fileID: 0}
-    - target: {fileID: 5033267554572535475, guid: 14e71bcb917410d4b8cffe895b263c80,
+    - target: {fileID: 3758157133670872956, guid: 14e71bcb917410d4b8cffe895b263c80,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: -750.2999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758157133670872956, guid: 14e71bcb917410d4b8cffe895b263c80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159376588920675463, guid: 14e71bcb917410d4b8cffe895b263c80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159376588920675463, guid: 14e71bcb917410d4b8cffe895b263c80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 71.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14e71bcb917410d4b8cffe895b263c80, type: 3}

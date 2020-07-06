@@ -55,19 +55,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926ff91175f3c934fa53cb6720a353d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8853450534280671742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5031224138415175721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83056d5ce117ce8458f7eea742c83732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 100
 --- !u!114 &8770835999528535477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +68,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePoints: 0
+--- !u!114 &8853450534280671742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5031224138415175721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83056d5ce117ce8458f7eea742c83732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5332212078391161381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,6 +165,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
         type: 2}
+    - target: {fileID: 2690995436221021553, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: levelUpParticles
+      value: 
+      objectReference: {fileID: 2624032866542725702, guid: f631d134cee6de146ba2c159b6318ee8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
 --- !u!1 &5031224138415175721 stripped
