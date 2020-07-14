@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameDevTV.Utils;
 using UnityEngine;
 
 namespace RPG.Stats
@@ -15,24 +16,43 @@ namespace RPG.Stats
 
         public event Action onLevelUp;
 
-        int currentLevel = 0;
+        LazyValue<int> currentLevel;
+
+        Experience experience;
+
+        private void Awake()
+        {
+            experience = GetComponent<Experience>();
+            currentLevel = new LazyValue<int>(CalculateLevel);
+        }
 
         private void Start()
         {
-            currentLevel = GetLevel();
-            Experience experience = GetComponent<Experience>();
-            if(experience != null)
+            currentLevel.ForceInit();
+        }
+
+        private void OnEnable()
+        {
+            if (experience != null)
             {
                 experience.onExperienceGained += UpdateLevel;
             }
         }
 
+        private void OnDisable()
+        {
+            if (experience != null)
+            {
+                experience.onExperienceGained -= UpdateLevel;
+            }
+        }
+
         private void UpdateLevel()
         {
-            int newLevel = GetLevel();
-            if(newLevel > currentLevel)
+            int newLevel = CalculateLevel();
+            if(newLevel > currentLevel.value)
             {
-                currentLevel = newLevel;
+                currentLevel.value = newLevel;
                 LevelUpEffect();
                 onLevelUp();
             }
@@ -48,10 +68,15 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(stat, characterClass, currentLevel);
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (1 + (GetPercentageModifier(stat)/100));
         }
 
-        public int GetLevel()
+        private float GetBaseStat(Stat stat)
+        {
+            return progression.GetStat(stat, characterClass, currentLevel.value);
+        }
+
+        public int CalculateLevel()
         {
             Experience exp = GetComponent<Experience>();
 
@@ -69,6 +94,32 @@ namespace RPG.Stats
             }
 
             return penultLevel + 1; //Last level to have "lvl up xp" will be second to last lvl
+        }
+
+        private float GetAdditiveModifier(Stat stat)
+        {
+            float total = 0;
+            foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+            {
+                foreach(float modifier in provider.GetAdditiveModifier(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
+        }
+
+        private float GetPercentageModifier(Stat stat)
+        {
+            float total = 0;
+            foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+            {
+                foreach (float modifier in provider.GetPercentageModifier(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
         }
     }
 }
