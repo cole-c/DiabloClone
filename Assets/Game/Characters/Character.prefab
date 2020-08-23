@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e12118962a789458228d03b4408f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  startingLevel: 0
   characterClass: 0
   progression: {fileID: 11400000, guid: 0624cc36daa7ee745afef035e1e97bae, type: 2}
+  levelUpParticles: {fileID: 0}

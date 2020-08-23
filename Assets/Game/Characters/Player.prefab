@@ -71,6 +71,8 @@ MonoBehaviour:
   - type: 4
     texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
     hotspot: {x: 0, y: 0}
+  maxNavMeshProjectionDistance: 1
+  maxNavPathLength: 40
 --- !u!114 &8770835999528535477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.881
+      objectReference: {fileID: 0}
     - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
       propertyPath: rightHandTransform
       value: 
@@ -181,12 +198,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
         type: 2}
+    - target: {fileID: 799340147610727716, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2690995436221021553, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
       propertyPath: levelUpParticles
       value: 
       objectReference: {fileID: 2624032866542725702, guid: f631d134cee6de146ba2c159b6318ee8,
         type: 3}
+    - target: {fileID: 437501251929652892, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 437501251929652892, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
 --- !u!1 &5031224138415175721 stripped
