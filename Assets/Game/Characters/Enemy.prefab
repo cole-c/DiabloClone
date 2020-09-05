@@ -42,7 +42,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83056d5ce117ce8458f7eea742c83732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 20
 --- !u!114 &681452212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,9 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e12118962a789458228d03b4408f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  startingLevel: 0
   characterClass: 1
   progression: {fileID: 11400000, guid: 0624cc36daa7ee745afef035e1e97bae, type: 2}
+  levelUpParticles: {fileID: 0}
 --- !u!114 &5265845816154061505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,17 +116,17 @@ PrefabInstance:
     - target: {fileID: 877547790062193160, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.6686893
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877547790062193160, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000009536743
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877547790062193160, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.924786
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 877547790062193160, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
@@ -167,6 +167,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.038
       objectReference: {fileID: 0}
     - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
       propertyPath: weapon
