@@ -30,18 +30,6 @@ CapsuleCollider:
   m_Height: 2.42408
   m_Direction: 1
   m_Center: {x: 0.107685864, y: 0.71203995, z: -0.11801505}
---- !u!114 &681452206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6489039268642917259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83056d5ce117ce8458f7eea742c83732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &681452212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,20 +156,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+    - target: {fileID: 430468863885988589, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.038
       objectReference: {fileID: 0}
     - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
       propertyPath: weapon
@@ -209,6 +187,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Speed
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.038
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2690995436221021553, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}

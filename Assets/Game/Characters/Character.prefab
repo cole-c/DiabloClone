@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 164061034}
   - component: {fileID: 164061035}
   - component: {fileID: 2690995436221021553}
+  - component: {fileID: 5354637705942667562}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -174,6 +175,34 @@ MonoBehaviour:
   characterClass: 0
   progression: {fileID: 11400000, guid: 0624cc36daa7ee745afef035e1e97bae, type: 2}
   levelUpParticles: {fileID: 0}
+--- !u!114 &5354637705942667562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877547790062193164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83056d5ce117ce8458f7eea742c83732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1036957337998144803}
+        m_MethodName: Spawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: RPG.Resources.Health+TakeDamageEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &190902104588844824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,3 +278,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 190902104588844824}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1036957337998144803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 919362452489587259, guid: be81586ce92b0a94691a115ab7be76bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 190902104588844824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad3c1849f0716340b0b2a5d15a1e28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

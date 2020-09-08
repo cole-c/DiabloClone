@@ -71,7 +71,6 @@ namespace RPG.SceneManagement
             player.transform.rotation = otherPortal.spawnPoint.rotation;
         }
 
-
         private Portal GetOtherPortal()
         {
             foreach (Portal portal in FindObjectsOfType<Portal>())
