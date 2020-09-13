@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using RPG.Control;
 
 namespace RPG.SceneManagement
 {
@@ -40,14 +41,22 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper saveSystem = FindObjectOfType<SavingWrapper>();
+            PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+            //Remove control from player to prevent them re-entering a portal while loading the new scene
+            playerController.enabled = false;
 
             yield return fader.FadeOut(fadeOutTime);
 
             //Save current level
-            SavingWrapper saveSystem = FindObjectOfType<SavingWrapper>();
             saveSystem.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+
+            //Technically a new player object in the new scene, disable control again here
+            PlayerController newPlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            newPlayerController.enabled = false;
 
             //Load current level
             saveSystem.Load();
@@ -59,7 +68,10 @@ namespace RPG.SceneManagement
             saveSystem.Save();
 
             yield return new WaitForSeconds(fadeWaitTime);
-            yield return fader.FadeIn(fadeInTime);
+            fader.FadeIn(fadeInTime);
+
+            //Restore control to the player
+            newPlayerController.enabled = true;
 
             Destroy(gameObject);
         }
