@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: AllyBow
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: f335f87597e7440a0a9335246fcfc8b3, type: 2}
-  equippedPrefab: {fileID: 2791671037290294726, guid: 7693e9349c2d0450cb843a6eeb587d51,
+  equippedPrefab: {fileID: -807667078519213617, guid: 7693e9349c2d0450cb843a6eeb587d51,
     type: 3}
   weaponDamage: 5
+  percentageBonus: 0
   weaponRange: 10
   isRightHanded: 1
   projectile: {fileID: 2009959229142893003, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
