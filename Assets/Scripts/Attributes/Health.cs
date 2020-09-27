@@ -94,6 +94,11 @@ namespace RPG.Attributes
             healthPoints.value = GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
+        public void Heal(float healthToRestore)
+        {
+            healthPoints.value = Mathf.Min(healthPoints.value + healthToRestore, GetMaxHealthPoints());
+        }
+
         private void Die()
         {
             if(!isDead)
