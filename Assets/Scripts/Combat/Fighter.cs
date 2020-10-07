@@ -39,7 +39,7 @@ namespace RPG.Combat
 
             if (target == null || target.IsDead()) return;
 
-            if (!IsInRange())
+            if (!IsInRange(target.transform))
             {
                 GetComponent<Mover>().MoveTo(target.transform.position, 1f);
             }
@@ -101,14 +101,16 @@ namespace RPG.Combat
             Hit();
         }
 
-        private bool IsInRange()
+        private bool IsInRange(Transform targetTransform)
         {
-            return Vector3.Distance(transform.position, target.transform.position) < currentWeaponConfig.GetRange();
+            return Vector3.Distance(transform.position, targetTransform.position) < currentWeaponConfig.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget)
         {
-            if(combatTarget == null)
+            if (combatTarget == null) return false;
+            if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position) && 
+                !IsInRange(combatTarget.transform))
             {
                 return false;
             }

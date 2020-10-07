@@ -181,10 +181,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 877547790062193164, guid: 34e8e778df8b4854e93f40315f027bb6,
+    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
+        type: 2}
+    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 8526616658121347148}
+    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 8526616658121420878}
+    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 8526616658121347148}
+    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
+        type: 2}
+    - target: {fileID: 430468863885988589, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
-      propertyPath: m_Name
-      value: Enemy
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 877547790062193158, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: m_Speed
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 877547790062193160, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
@@ -241,37 +268,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 430468863885988589, guid: 34e8e778df8b4854e93f40315f027bb6,
+    - target: {fileID: 877547790062193164, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
-        type: 2}
-    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
-      propertyPath: handTransform
-      value: 
-      objectReference: {fileID: 8526616658121347148}
-    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
-      propertyPath: leftHandTransform
-      value: 
-      objectReference: {fileID: 8526616658121420878}
-    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
-      propertyPath: rightHandTransform
-      value: 
-      objectReference: {fileID: 8526616658121347148}
-    - target: {fileID: 164061034, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 2dec77adf3bc144c7a3c60fdc21eb964,
-        type: 2}
-    - target: {fileID: 877547790062193158, guid: 34e8e778df8b4854e93f40315f027bb6,
-        type: 3}
-      propertyPath: m_Speed
-      value: 3.5
+      propertyPath: m_Name
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4603198479501634841, guid: 34e8e778df8b4854e93f40315f027bb6,
         type: 3}
@@ -287,6 +287,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354637705942667562, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354637705942667562, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354637705942667562, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354637705942667562, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1652295053}
+    - target: {fileID: 5354637705942667562, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Aggravate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354637705942667562, guid: 34e8e778df8b4854e93f40315f027bb6,
+        type: 3}
+      propertyPath: takeDamage.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2690995436221021553, guid: 34e8e778df8b4854e93f40315f027bb6, type: 3}

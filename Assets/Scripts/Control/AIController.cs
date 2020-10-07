@@ -11,10 +11,12 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 3f;
+        [SerializeField] float aggroCooldownTime = 5f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 3f;
         [SerializeField] float patrolSpeedFraction = 0.2f;
+        [SerializeField] float shoutDistance = 5f;
 
         Fighter fighter;
         Health health;
@@ -24,6 +26,7 @@ namespace RPG.Control
         LazyValue<Vector3> guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
+        float timeSinceAggravated = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
         private void Awake()
@@ -45,7 +48,7 @@ namespace RPG.Control
         {
             if (health.IsDead()) return;
 
-            if(InAttackRange() && fighter.CanAttack(player))
+            if(IsAggro() && fighter.CanAttack(player))
             {
                 //Aggro state
                 AttackBehaviour();
@@ -60,8 +63,19 @@ namespace RPG.Control
                 PatrolBehavior();
             }
 
+            UpdateTimers();
+        }
+
+        public void Aggravate()
+        {
+            timeSinceAggravated = 0;
+        }
+
+        private void UpdateTimers()
+        {
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceArrivedAtWaypoint += Time.deltaTime;
+            timeSinceAggravated += Time.deltaTime;
         }
 
         private Vector3 GetGuardPosition()
@@ -73,6 +87,20 @@ namespace RPG.Control
         {
             timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
+
+            AggravateNearbyEnemies();
+        }
+
+        private void AggravateNearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
+            foreach(RaycastHit hit in hits)
+            {
+                AIController ai = hit.collider.GetComponent<AIController>();
+                if (ai == null) continue;
+
+                ai.Aggravate();
+            }
         }
 
         private void SuspicionBehavior()
@@ -112,9 +140,10 @@ namespace RPG.Control
             return patrolPath.GetWaypoint(currentWaypointIndex);
         }
 
-        private bool InAttackRange()
+        private bool IsAggro()
         {
-            return Vector3.Distance(player.transform.position, transform.position) < chaseDistance;
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+            return distanceToPlayer < chaseDistance || timeSinceAggravated < aggroCooldownTime;
         }
 
         private void CycleWaypoint()
