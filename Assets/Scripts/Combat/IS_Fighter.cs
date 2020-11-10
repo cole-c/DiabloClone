@@ -15,11 +15,12 @@ namespace RPG.Combat
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] WeaponConfig defaultWeapon = null;
+        [SerializeField] IS_WeaponConfig defaultWeapon = null;
+        [SerializeField] GameObject rangedTarget = null;
 
-        Health target;
+        //Health target;
         float timeSinceLastAttack = 5f;
-        WeaponConfig currentWeaponConfig;
+        IS_WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
 
         private void Awake()
@@ -39,8 +40,12 @@ namespace RPG.Combat
 
             //if (target == null || target.IsDead()) return;
 
-            GetComponent<Mover>().Cancel();
-            AttackBehavior();
+            //GetComponent<Mover>().Cancel();
+            
+            if(Input.GetMouseButtonDown(0))
+            {
+                AttackBehavior();
+            }
 
         }
 
@@ -51,7 +56,6 @@ namespace RPG.Combat
 
         private void AttackBehavior()
         {
-            transform.LookAt(target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
                 TriggerAttack();
@@ -69,7 +73,7 @@ namespace RPG.Combat
         //Animation Event
         void Hit()
         {
-            if (target == null) return;
+            //if (target == null) return;
 
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
 
@@ -81,11 +85,14 @@ namespace RPG.Combat
 
             if (currentWeaponConfig.HasProjectile())
             {
-                currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
+                Debug.Log("Attempting to launch projectile");
+                currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, rangedTarget, gameObject, damage);
+                //currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                target.TakeDamage(gameObject, currentWeaponConfig.GetDamage());
+                Debug.Log("Melee target take damage");
+                //target.TakeDamage(gameObject, currentWeaponConfig.GetDamage());
             }
         }
 
@@ -97,8 +104,9 @@ namespace RPG.Combat
 
         public void Attack(GameObject target)
         {
+            Debug.Log("Attack Action!");
             GetComponent<ActionScheduler>().StartAction(this);
-            this.target = target.GetComponent<Health>();
+            //this.target = target.GetComponent<Health>();
         }
 
         public void Cancel()
@@ -107,14 +115,14 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public void EquipWeapon(WeaponConfig weapon)
+        public void EquipWeapon(IS_WeaponConfig weapon)
         {
             if (weapon == null) return;
             currentWeaponConfig = weapon;
             currentWeapon.value = AttachWeapon(weapon);
         }
 
-        private Weapon AttachWeapon(WeaponConfig weapon)
+        private Weapon AttachWeapon(IS_WeaponConfig weapon)
         {
             Animator animator = GetComponent<Animator>();
             return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
@@ -144,7 +152,7 @@ namespace RPG.Combat
         public void RestoreState(object state)
         {
             String weaponName = (string)state;
-            WeaponConfig weapon = UnityEngine.Resources.Load<WeaponConfig>(weaponName);
+            IS_WeaponConfig weapon = UnityEngine.Resources.Load<IS_WeaponConfig>(weaponName);
             EquipWeapon(weapon);
         }
     }

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3126413484516405462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729714048686246420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbbb8e8d90da7c94e800cc0073b99cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  homing: 0
+  hitEffect: {fileID: 5435712097626003287, guid: 991766ba3c2b35545ac3e5865b29466d,
+    type: 3}
+  maxLifeTime: 10
+  destroyOnHit: []
+  lifeAfterImpact: 0.2
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3603602191164422671}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1001 &6118713092924978072
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8145865301163342220, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_Name
+      value: IS_ArrowAllyTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599046132451201788, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2009959229142893003, guid: 5bd70076e83ef4cab81b46e1e7621cc5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 5bd70076e83ef4cab81b46e1e7621cc5, type: 3}
+--- !u!1 &2729714048686246420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8145865301163342220, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6118713092924978072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &3603602191164422671 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7415344163060681111, guid: 5bd70076e83ef4cab81b46e1e7621cc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6118713092924978072}
+  m_PrefabAsset: {fileID: 0}
