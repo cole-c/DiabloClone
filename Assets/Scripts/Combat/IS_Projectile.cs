@@ -51,7 +51,7 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player")) return;
-            if (other.GetComponent<Health>().IsDead()) return;
+            if (other.GetComponent<Health>() != null && other.GetComponent<Health>().IsDead()) return;
 
             Health hitHealth = other.GetComponent<Health>();
 

@@ -22,6 +22,7 @@ namespace RPG.Combat
         float timeSinceLastAttack = 5f;
         IS_WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
+        private List<Health> enemiesInRange = new List<Health>();
 
         private void Awake()
         {
@@ -73,26 +74,32 @@ namespace RPG.Combat
         //Animation Event
         void Hit()
         {
-            //if (target == null) return;
 
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
-
-            if (currentWeapon.value != null)
-            {
-                //Calls the method inside Weapon.cs
-                currentWeapon.value.OnHit();
-            }
 
             if (currentWeaponConfig.HasProjectile())
             {
                 Debug.Log("Attempting to launch projectile");
+                if (currentWeapon.value != null)
+                {
+                    //Calls the method inside Weapon.cs, ususally a sound effect
+                    currentWeapon.value.OnHit();
+                }
                 currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, rangedTarget, gameObject, damage);
-                //currentWeaponConfig.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                Debug.Log("Melee target take damage");
-                //target.TakeDamage(gameObject, currentWeaponConfig.GetDamage());
+                //Damage each enemy within melee range
+                foreach(Health enemy in enemiesInRange)
+                {
+                    if (currentWeapon.value != null)
+                    {
+                        //Calls the method inside Weapon.cs, ususally a sound effect
+                        currentWeapon.value.OnHit();
+                    }
+                    enemy.TakeDamage(gameObject, currentWeaponConfig.GetDamage());
+                }
+                
             }
         }
 
@@ -100,13 +107,6 @@ namespace RPG.Combat
         void Shoot()
         {
             Hit();
-        }
-
-        public void Attack(GameObject target)
-        {
-            Debug.Log("Attack Action!");
-            GetComponent<ActionScheduler>().StartAction(this);
-            //this.target = target.GetComponent<Health>();
         }
 
         public void Cancel()
@@ -126,6 +126,29 @@ namespace RPG.Combat
         {
             Animator animator = GetComponent<Animator>();
             return weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Health otherHealth = other.GetComponent<Health>();
+
+            if (other.CompareTag("Player") || otherHealth == null) return;
+
+            if(!enemiesInRange.Contains(otherHealth))
+            {
+                Debug.Log("Added Enemy to Melee Damage List!");
+                enemiesInRange.Add(otherHealth);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            Health otherHealth = other.GetComponent<Health>();
+
+            if(otherHealth != null && enemiesInRange.Contains(otherHealth))
+            {
+                enemiesInRange.Remove(otherHealth);
+            }
         }
 
         public IEnumerable<float> GetAdditiveModifier(Stat stat)
