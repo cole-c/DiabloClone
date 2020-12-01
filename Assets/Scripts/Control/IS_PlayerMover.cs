@@ -51,11 +51,14 @@ namespace RPG.Movement
             //TODO change this to jump
             movementDirection.y = 0f;
 
-            //Move on the navmesh
-            navMeshAgent.Move(movementDirection.normalized * moveSpeed * Time.deltaTime);
+            //Move on the navmesh if alive
+            if(navMeshAgent.enabled)
+            {
+                navMeshAgent.Move(movementDirection.normalized * moveSpeed * Time.deltaTime);
+            }
 
             //Rotate toward movement direction
-            if (movementDirection != Vector3.zero)
+            if (movementDirection != Vector3.zero && navMeshAgent.enabled)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movementDirection), 0.15F);
             }
